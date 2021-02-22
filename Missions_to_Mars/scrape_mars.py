@@ -17,4 +17,6 @@ client = pymongo.MongoClient(conn)
 # NASA Mars Web Scraper
 #---------------------------------------------------------------
 
-def 
+def scrape():
+    #DOWNLOAD IPYNB AS PYTHON HERE 
+

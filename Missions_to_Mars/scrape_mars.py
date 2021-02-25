@@ -97,5 +97,4 @@ def scrape():
         
         hemis_img_urls.append(hemi_img_dict)
     
-
-return mars_data
+    return(mars_data)

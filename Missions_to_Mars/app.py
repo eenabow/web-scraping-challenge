@@ -20,8 +20,7 @@ client = pymongo.MongoClient(conn)
 
 @app.route("/")
 def welcome(): 
-        db = client.db.scraped_mars_info
-        db_pull = db.find_one()
+        db_pull = client.db.scraped_mars_info.find_one()
         print("Server received request for 'Home' page...")
         return render_template("index.html", db_pull = db_pull)
 

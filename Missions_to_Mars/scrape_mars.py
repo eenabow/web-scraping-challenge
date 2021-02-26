@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from webdriver_manager.chrome import ChromeDriverManager
 import requests
 import pandas as pd
+from random import randint
 from time import sleep
 
 
@@ -15,7 +16,7 @@ from time import sleep
 def scrape():
 
     # Set Executable Path & Initialize Chrome Browser
-    executable_path = {"executable_path": "./chromedriver.exe"}
+    executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser("chrome", **executable_path)
 
     # Create empty dictionary to hold all variables
@@ -91,7 +92,7 @@ def scrape():
         img_page_soup = BeautifulSoup(response.text, 'html.parser')
         
         hemi_img_url = img_page_soup.find('ul').li.a['href']
-
+        
         hemi_img_dict = {'title': hemi_title, 
                     'img_url': hemi_img_url}
         

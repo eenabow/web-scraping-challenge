@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- Jumbotron elements -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
             <header>
@@ -23,7 +24,20 @@
             </header>
         </div>
     </div>
-    <h3>{{db_pull.title}}</h3>
+
+    <!-- Latest NASA-Mars News Container-->
+    <div class="col-md-12">
+        <div class="row" id="mars-news">
+            <div class="media">
+                <div class="media-body">
+                    <h3>Latest Mars News</h4>
+                    <h5>{{db_pull.title}}</h5>
+                    <p>{{db_pull.news_p}}</p>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <!-- <h3>{{db_pull.title}}</h3> -->
 
     <!-- #Use jinja filter on html table | & html boilerplate text -->
     {{db_pull.facts_table}}

@@ -38,9 +38,10 @@ def scrape():
     mars_data["title"] = title
 
     #Find latest news description
-    news_p = soup.find_all('div', class_='article_teaser_body')
-    news_p[1].get_text()
+    news_article = soup.find('div', class_='article_teaser_body')
+    news_p= news_article.get_text()
     mars_data["news_p"] = news_p
+    
 
     # Visit JPL Mars Space Images
     jpl_img_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
@@ -64,7 +65,8 @@ def scrape():
 
     # Scrape the table containing facts about the planet including Diameter, Mass, etc.and turn into HTML table string
     facts_table = pd.read_html(facts_url)
-    mars_data["facts_table"] = facts_table
+    mars_facts_html = facts_table[0].to_html()
+    mars_data["facts_table"]= mars_facts_html 
 
     #Set an empty list to hold urls
     hemis_img_urls = []

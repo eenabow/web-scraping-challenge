@@ -30,17 +30,45 @@
         <div class="row" id="mars-news">
             <div class="media">
                 <div class="media-body">
-                    <h3>Latest Mars News</h4>
-                    <h5>{{db_pull.title}}</h5>
-                    <p>{{db_pull.news_p}}</p>
+                    <h2>Latest Mars News</h2>
+                        <h5>{{db_pull.title}}</h5>
+                        <p>{{db_pull.news_p}}</p>
                 </div>
             </div>
         </div>
-    </div>   
-    <!-- <h3>{{db_pull.title}}</h3> -->
+    </div>
+    <!-- Featured Mars Image Container-->
+    <div class="col-md-7">
+        <div class="row" id="mars-photo">
+            <div class="media">
+                <div class="media-body">
+                    <h2>Featured Mars Image</h2>
+                        <img src={{ db_pull.image }} class='img-fluid' alt="JPL Featured Image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mars Facts table Container-->
+    <div class="col-md-4">
+        <div class="row" id="mars-facts">
+            <div class="media">
+                <div class="media-body">
+                    <h2>Mars Facts</h2>
+                    {{db_pull.facts_table | safe}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
 
     <!-- #Use jinja filter on html table | & html boilerplate text -->
-    {{db_pull.facts_table}}
+ 
 
 </body>
 

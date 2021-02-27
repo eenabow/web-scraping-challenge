@@ -3,12 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mission to Mars Web Scraping</title>
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <header>
+                <h1 class="display-4"><b>Mission to Mars</b></h1>
+                <button type="button" class="btn btn-secondary btn-lg">
+                    <a class="btn btn-secondary" href="/scrape" role="button">Scrape New Data</a>
+                </button>
+            </header>
+        </div>
+    </div>
     <h3>{{db_pull.title}}</h3>
 
     <!-- #Use jinja filter on html table | & html boilerplate text -->
     {{db_pull.facts_table}}
 
-</head>
+</body>
 
 </html>

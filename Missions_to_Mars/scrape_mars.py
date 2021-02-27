@@ -84,7 +84,7 @@ def scrape():
     results = soup.find_all("div", class_='description')
     
     #Runs through each hemisphere div, clicks in to find link to full size image URL, title of Hemisphere, and appends the dictionary
-     for result in results:
+    for result in results:
         
         hemi_title = result.find('h3').text
 

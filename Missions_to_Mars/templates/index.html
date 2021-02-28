@@ -67,8 +67,10 @@
             </div>
         </div>
 
-        <!-- Use Cards to hold Mars Hemisphere photos  -->
-        <!-- <div class="row" id="mars-hemispheres">
+
+        <!-- Below still needs debugged- appended hemispheres list is not showing in html -->
+        {{mars}}
+         <div class="row" id="mars-hemispheres">
             {% for item in mars.hemispheres %}
             <div class='col-md-6 col-xs-12 pt-4'>
                 <div class="card" style="width: 35rem;">
@@ -79,17 +81,8 @@
                 </div>
                 {% endfor %}
             </div>
-        </div>
-    </div> -->
-    <!-- <div class="card" style="width: 18rem;">
-        <img src={{ mars.hemispheres.img_url }} class="card-img-top" alt="...">
-        <div class="card-body">
-            <p class="card-text"> {{mars.hemispheres.title}}</p>
-        </div>
-    </div> -->
-
-    {{mars}}
-
+    </div>
+    </div>
 
 
 </body>

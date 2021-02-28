@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mission to Mars Web Scraping</title>
 
     <!-- Bootstrap -->
@@ -30,8 +31,8 @@
             <div class="media">
                 <div class="media-body">
                     <h2>Latest Mars News</h2>
-                    <h5>{{db_pull.title}}</h5>
-                    <p>{{db_pull.news_p}}</p>
+                    <h5>{{mars.title}}</h5>
+                    <p>{{mars.news_p}}</p>
                     <hr>
                 </div>
             </div>
@@ -42,14 +43,14 @@
         <div class="col-md-8">
             <div class="media-body">
                 <h2>Featured Mars Image</h2>
-                <img src={{ db_pull.image }} class="img-responsive" alt="JPL Featured Image">
+                <img src={{ mars.image }} class="img-responsive" alt="JPL Featured Image">
             </div>
         </div>
         <!-- Mars Facts table Container-->
         <div class="col-md-4">
             <div class="media-body">
                 <h2>Mars Facts</h2>
-                {{db_pull.facts_table | safe}}
+                {{mars.facts_table | safe}}
             </div>
         </div>
     </div>
@@ -65,25 +66,30 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Use Cards to hold Mars Hemisphere photos  -->
-    <div class="card-deck">
-        <div class="row" id="mars-hemispheres">
-            <div class="col-md-12">
-                {% for hemisphere in db_pull.hemis_img_urls %}
-                <div class="col-md-6">
-                    <div class="thumbnail">
-                        <img src={{ hemisphere.img_url }}>
-                        <div class="caption">
-                            <h3><b>{{hemisphere.title}}</b></h3>
-                        </div>
+
+        <!-- Use Cards to hold Mars Hemisphere photos  -->
+        <!-- <div class="row" id="mars-hemispheres">
+            {% for item in mars.hemispheres %}
+            <div class='col-md-6 col-xs-12 pt-4'>
+                <div class="card" style="width: 35rem;">
+                    <img class="card-img-top img-fluid" src="{{ x.img_url }}">
+                    <div class="card-body">
+                        <h3 class="card-text"><b> {{ x.title}}</b></h3>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-    </div>
-    <!-- #Use jinja filter on html table | & html boilerplate text -->
+    </div> -->
+    <!-- <div class="card" style="width: 18rem;">
+        <img src={{ mars.hemispheres.img_url }} class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text"> {{mars.hemispheres.title}}</p>
+        </div>
+    </div> -->
+
+    {{mars}}
+
 
 
 </body>

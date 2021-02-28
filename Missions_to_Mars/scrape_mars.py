@@ -65,8 +65,13 @@ def scrape():
 
     # Scrape the table containing facts about the planet including Diameter, Mass, etc.and turn into HTML table string
     facts_table = pd.read_html(facts_url)
-    mars_facts_html = facts_table[0].to_html()
+    mars_facts= facts_table[0]
+    # Rename columns 
+    mars_facts.columns = ['Description', 'Value']
+    mars_facts_html = mars_facts.to_html(index = False)
+    #insert into dictionary
     mars_data["facts_table"]= mars_facts_html 
+
 
     #Set an empty list to hold urls
     hemis_img_urls = []
@@ -83,22 +88,6 @@ def scrape():
     base_url = "https://astrogeology.usgs.gov"
     results = soup.find_all("div", class_='description')
     
-    #Runs through each hemisphere div, clicks in to find link to full size image URL, title of Hemisphere, and appends the dictionary
-    for result in results:
-        
-        hemi_title = result.find('h3').text
 
-        img_page_url = base_url + result.find('a')['href']
-        browser.visit(img_page_url)
-        
-        html = browser.html
-        img_page_soup = BeautifulSoup(html, 'html.parser')
-        
-        hemi_img_url = img_page_soup.find('ul').li.a['href']
-        
-        hemi_img_dict = {'title': hemi_title, 
-                    'img_url': hemi_img_url}
-        
-        hemis_img_urls.append(hemi_img_dict)
     
     return(mars_data)

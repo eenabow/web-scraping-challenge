@@ -30,9 +30,9 @@
         <div class="col-md-12">
             <div class="media">
                 <div class="media-body">
-                    <h2>Latest Mars News</h2>
-                    <h5>{{mars.title}}</h5>
-                    <p>{{mars.news_p}}</p>
+                    <h2 style="padding-left: 100px">Latest Mars News</h2>
+                    <h5 style="padding-left: 100px"> {{mars.title}}</h5>
+                    <p style="padding-left: 100px">{{mars.news_p}}</p>
                     <hr>
                 </div>
             </div>
@@ -42,8 +42,8 @@
     <div class="row" id="mars-photo">
         <div class="col-md-8">
             <div class="media-body">
-                <h2>Featured Mars Image</h2>
-                <img src={{ mars.image }} class="img-responsive" alt="JPL Featured Image">
+                <h2 style="padding-left: 100px">Featured Mars Image</h2>
+                <img style="padding-left: 100px" src={{ mars.image }} class="img-responsive" alt="JPL Featured Image">
             </div>
         </div>
         <!-- Mars Facts table Container-->
@@ -66,25 +66,22 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- Below still needs debugged- appended hemispheres list is not showing in html -->
-        {{mars}}
-         <div class="row" id="mars-hemispheres">
-            {% for item in mars.hemispheres %}
-            <div class='col-md-6 col-xs-12 pt-4'>
-                <div class="card" style="width: 35rem;">
-                    <img class="card-img-top img-fluid" src="{{ x.img_url }}">
-                    <div class="card-body">
-                        <h3 class="card-text"><b> {{ x.title}}</b></h3>
+        <div class="col-md-12">
+            <div class="row" id="mars-hemispheres">
+                {% for hemisphere in mars.hemispheres %}
+                <div class="col-md-6">
+                    <div class="card text-white bg-dark" style="margin: 30px;">
+                        <!-- If Images are False/None/Non-Existent, Then Default to Error Message -->
+                        <img class="card-img-top" src="{{hemisphere.img_url}}" />
+                        <div class="card-body">
+                            <p class="card-text">{{hemisphere.title}}</p>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
+        </div>
     </div>
-    </div>
-
-
 </body>
 
 </html>

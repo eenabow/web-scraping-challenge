@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 #CREATE A FREE MONGO CLUSTER MONGODB
 #  The default port used by MongoDB is 27017
-conn = 'mongodb://localhost:27017'
+conn = 'mongodb://localhost:27017/scraped_mars_info'
 client = pymongo.MongoClient(conn)
 
 #########################################################################################################################
